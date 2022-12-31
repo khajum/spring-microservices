@@ -21,6 +21,7 @@ public class CurrencyExchangeController {
 
         //CurrencyExchange currencyExchange = new CurrencyExchange(1000L, "USD", "NPR", 130.5, port);
         CurrencyExchange currencyExchange = currencyExchangeRepository.findByFromAndTo(from, to);
+        currencyExchange.setEnvironment("port:"+port);
         if(currencyExchange == null) {
             throw new RuntimeException("Unable to find data for "+from+" to "+to);
         }
